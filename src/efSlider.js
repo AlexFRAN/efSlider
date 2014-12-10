@@ -19,6 +19,7 @@
             autoplay: false,
             loop: false,
             speed: 500,
+            keyboard: false,
             interval: 3000,
             fluid: false,
             onSlideComplete: function(num) {}
@@ -101,6 +102,17 @@
             
             if(this.settings.autoplay == true) {
                 window.setInterval(this.slideTo, this.settings.interval);
+            }
+            
+            if(this.settings.keyboard == true) {
+                $(document).on('keyup', function(e) {
+                    if (e.keyCode == 37) {
+                        $self.slideTo('prev');
+                    }
+                    else if (e.keyCode == 39) {
+                        $self.slideTo('next');
+                    }
+                });
             }
             
             // Arrow navigation

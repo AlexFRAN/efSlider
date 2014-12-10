@@ -17,6 +17,16 @@
         color: #555;
     }
     
+    #logo
+    {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        margin-left: -100px;
+        z-index: 100;
+        width: 200px;
+    }
+    
     .popup
     {
         width: 100%;
@@ -140,6 +150,7 @@
 </head>
 <body>
     <div class="popup">
+        <img src="efslider.png" alt="efSlider" id="logo" />
         <div class="slides">
             <div class="slide">
                 <img src="popup1.jpg" />
@@ -187,6 +198,7 @@
             speed: 300,                             // sliding spped
             interval: 3000,                         // when using autoplay, interval between slides
             fluid: false,                           // use fluid layout
+            keyboard: true,                         // Keyboard support
             onSlideComplete: function(num) {}       // callback function after each slide, current slide number as param
         });
     }(jQuery));

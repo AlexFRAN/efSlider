@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>efSlider Example</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css" />
+    <link href="css/efSlider.css" rel="stylesheet" />
+    <style type="text/css">
+    body
+    {
+        margin: 0;
+    }
+    
+    *
+    {
+        font-family: 'Roboto', sans-serif;
+        color: #555;
+    }
+    
+    .popup
+    {
+        width: 100%;
+        position: relative;
+        background: white;
+    }
+    
+    .popup .text
+    {
+        width: 370px;
+        padding: 0 15px 15px;
+        background: white;
+        font-size: 14px;
+    }
+    
+    h3
+    {
+        font-weight: 400;
+        font-size: 16px;
+        color: #85a4bd;
+        padding: 15px 0 5px;
+        margin: 0;
+    }
+    
+    
+    /*---- efSlider Customization ----*/
+    
+    /* Customize slider height */
+    .efSlider
+    {
+        height: 350px;
+    }
+    
+    /* Trick to prevent wrong width when using 100% + fluid width */
+    .popup > .slides
+    {
+        height: 1px;
+        overflow: hidden;
+    }
+    
+    /* For this example we want a full-width slider */
+    .popup .slides .slide,
+    .popup .slides img
+    {
+        width: 100%;
+    }
+    
+    /* We want the images to have a minimal height, to prevent scaling them too small */
+    .popup .efSlider img
+    {
+        min-height: 350px;
+        width: auto !important;
+        min-width: 100%;
+    }
+    
+    /* Lets style the arrows a bit */
+    .arrow
+    {
+        display: block;
+        position: fixed;
+        top: 135px;
+        width: 40px;
+        height: 80px;
+        background: rgba(0,0,0,0.4);
+        color: white;
+        text-align: center;
+        line-height: 80px;
+        text-decoration: none;
+    }
+    
+    .arrow:hover
+    {
+        background: rgba(0,0,0,0.8);
+    }
+    
+    .arrow.inactive
+    {
+        background: rgba(0,0,0,0.1);
+        color: rgba(255,255,255,0.5);
+        cursor: default;
+    }
+    
+    .prev
+    {
+        left: 0;
+    }
+    
+    .next
+    {
+        right: 0;
+    }
+    
+    /* Also make the other controls stay where we want */
+    .controls
+    {
+        bottom: 0;
+        padding-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .efSliderDots
+    {
+        display: inline-block;
+    }
+    
+    .pageNum
+    {
+        color: white;
+        text-shadow: 0px 1px 1px rgba(0,0,0,0.8);
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 24px;
+    }
+    
+    .content
+    {
+        padding: 20px 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <div class="slides">
+            <div class="slide">
+                <img src="popup1.jpg" />
+                <h3>Page 1</h3>
+                Continue...
+            </div>
+            <div class="slide">
+                <img src="popup2.jpg" />
+                <h3>Page 2</h3>
+                Continue...
+            </div>
+            <div class="slide">
+                <img src="popup3.jpg" />
+                <h3>Page 3</h3>
+                Continue...
+            </div>
+            <div class="slide">
+                <img src="popup4.jpg" />
+                <h3>Page 4</h3>
+                Continue...
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h1>efSlider</h1>
+        <p>
+            This is a slider wich is extremely easy to setup and to use.<br/>
+            You only need to have a basic html-markup, the script, a few styles and you're ready to go.<br/>
+            For available options and further usage, please check the source of this file.
+        </p>
+    </div>
+    <script type="text/javascript" src="vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/efSlider.min.js"></script>
+    <script type="text/javascript">
+    (function($) {
+        var slides = $('.slides').efSlider({
+            arrows: true,                           // show navigation arrows
+            arrowPrev: '&lt;',                      // prev-arrow markup
+            arrowNext: '&gt;',                      // next-arrow markup
+            dots: true,                            // navigation-dots
+            pageNum: true,                          // show current pagenum
+            start: 1,                               // start with slide x
+            autoplay: false,                        // auto-play slideshow
+            loop: false,                            // loop the slideshow, otherwise stop when reaching the end
+            speed: 300,                             // sliding spped
+            interval: 3000,                         // when using autoplay, interval between slides
+            fluid: false,                           // use fluid layout
+            onSlideComplete: function(num) {}       // callback function after each slide, current slide number as param
+        });
+    }(jQuery));
+    </script>
+</body>
+</html>

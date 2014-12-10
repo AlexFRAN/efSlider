@@ -1,0 +1,48 @@
+.efSlider
+{
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.efSlider .slides
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.efSlider .slides > div
+{
+    float: left;
+    min-height: 10px;
+}
+
+.efSlider .controls
+{
+    position: absolute;
+    z-index: 20;
+}
+
+.efSliderDots .dot
+{
+    border: 1px #ccc solid;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: #777;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.efSliderDots .dot:last-child
+{
+    margin-right: 0;
+}
+
+.efSliderDots .dot.current,
+.efSliderDots .dot:hover
+{
+    background: #222;
+}
